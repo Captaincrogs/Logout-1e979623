@@ -67,15 +67,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: welcome.php");
                         } else{
 
-                            $password_err = "The password you entered was not valid.";
+                            $password_err = "Ongeldig wachtwoord.";
                         }
                     }
                 } else{
 
-                    $username_err = "No account found with that username.";
+                    $username_err = "Er is geen account gevonden met dezelfde username.";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Er ging iets mis, probeer het opnieuw.";
             }
 
 

@@ -128,6 +128,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         <p>Heb je al een account? <a href="login.php">Log in!</a>.</p>
     </form>
+
+    <?php
+session_start();
+if (! empty($_SESSION['logged_in']))
+{
+    ?>
+    <div class="form-group">
+        <a href='logout.php'><label>Klik hier om uit te loggen.</label></a>
+    </div>
+    <?php
+}
+else
+{
+    echo 'Je bent nog niet uitgelogd. <a href="index.php">Klik hier</a> om in te loggen.';
+}
+    ?>
 </div>
 </body>
 </html>
