@@ -19,14 +19,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty(trim($_POST["password"]))) {
         $password_err = "Vul aub een wachtwoord in.";
-    } elseif(strlen(trim($_POST["password"])) < 6){
+    } elseif(strlen(trim($_POST["password"])) < 6) {
         $password_err = "Jouw wachtwoord heeft minimaal 6 letters nodig.";
     } else{
         $password = trim($_POST["password"]);
     }
 
 
-    if(empty(trim($_POST["confirm_password"]))){
+    if(empty(trim($_POST["confirm_password"]))) {
         $confirm_password_err = "Bevestig aub jouw wachtwoord";
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
@@ -41,30 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
 
-        if($stmt = mysqli_prepare($link, $sql)) {
-
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-
-
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT);
-
-
-            if(mysqli_stmt_execute($stmt)) {
-
-                header("location: login.php");
-            } else{
-                echo "Something went wrong. Please try again later.";
-            }
-
-
-            mysqli_stmt_close($stmt);
-        }
-    }
-
-
-    mysqli_close($link);
-}
+    }}
 ?>
 
 <!DOCTYPE html>
